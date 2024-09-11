@@ -23,4 +23,12 @@ app.use(express.urlencoded({ extended: true, limit: "16kb" }));
 
 app.use(express.static("public"));
 
+//routes import
+import userRouter from "./routes/user.routes.js";
+import uploadRoutes from "./middlewares/multer.middleware.js";
+
+//ROUTES DECLARATIONS
+app.use("/api/v1/users", userRouter);
+app.use("/api", uploadRoutes);
+
 export { app };
